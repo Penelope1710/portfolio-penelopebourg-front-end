@@ -8,6 +8,7 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} ^www\.penelopebourg\.fr$ [NC]
 RewriteRule ^.*$ /index.html [L]
 RewriteRule ^profile\.html$ /profile [R=301,L]
+RewriteRule ^legal-informations\.html$ /legal-informations [R=301,L]
  
 
 # Page d'erreur 404 personnalisée
