@@ -3,23 +3,23 @@
 @font-face {
   font-family: 'Refanea';
   src: 
-  url('/assets/fonts/refanea/refanea_2-webfont.woff2') format('woff2'),    
-  url('/assets/fonts/refanea/refanea_2-webfont.woff') format('woff'),
-  url('/assets/fonts/refanea/Refanea_3.ttf') format('truetype');
+  url('/fonts/refanea/refanea_2-webfont.woff2') format('woff2'),    
+  url('/fonts/refanea/refanea_2-webfont.woff') format('woff'),
+  url('/fonts/refanea/Refanea_3.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Italiana';
   src: 
-  url('/assets/fonts/italiana/Italiana-Regular.woff2'),
-  url('/assets/fonts/italiana/Italiana-Regular.ttf');
+  url('/fonts/italiana/Italiana-Regular.woff2'),
+  url('/fonts/italiana/Italiana-Regular.ttf');
 }
 
 @font-face {
   font-family: 'Quicksand';
   src: 
-  url('/assets/fonts/quicksand/Quicksand-VariableFont_wght.woff2') format('woff2'),
-  url('/assets/fonts/quicksand/Quicksand-VariableFont_wght.ttf') format('truetype');
+  url('/fonts/quicksand/Quicksand-VariableFont_wght.woff2') format('woff2'),
+  url('/fonts/quicksand/Quicksand-VariableFont_wght.ttf') format('truetype');
 }
 /********** VARIABLES **********/
 :root {
@@ -27,7 +27,7 @@
   /* Fonts */
   --font-family-main-title: 'Refanea';
   --font-family-text-1: 'Quicksand', sans-serif;
-  --font-family-text-2:  'Georgia', 'Times New Roman', 'Times', sans-serif;
+  --font-family-text-2:  'Georgia', 'Times New Roman', 'Times', s..if;
   --font-family-sous-titre: 'Italiana', sans-serif; 
 
   /* Font-size */
@@ -80,7 +80,7 @@
   }
 
  body {
-    font-family: var(--font-family-text-1), var(--font-family-text-2);
+    font-family: var(--font-family-text-1);
     font-weight: 450;
     font-style: normal;
     font-size: var(--fs-body);
