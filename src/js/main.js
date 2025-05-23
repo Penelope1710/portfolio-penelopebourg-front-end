@@ -60,35 +60,6 @@ document.querySelectorAll('[class*="appear-"]').forEach(function(a) {
 
 //  CONTACT FORM VALIDATION
 
-// 1. Fonction pour charger le script reCAPTCHA
-const loadRecaptchaScript = () => {
-    if (!window.grecaptcha) {
-        const script = document.createElement('script');
-        script.src = "https://www.google.com/recaptcha/api.js?render=6LdDuDkrAAAAAE-Kd567wFLfK0kaTVSx21hlSQt4";
-        script.async = true;
-        script.defer = true;
-        document.body.appendChild(script);
-    }
-}
-
-// 2. Observer la section #contact
-const contactSection = document.getElementById('contact');
-let recaptchaLoaded = false;
-
-if (contactSection) {
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !recaptchaLoaded) {
-                loadRecaptchaScript();
-                recaptchaLoaded = true;
-                observer.unobserve(contactSection);
-            }
-        });
-    }, { threshold: 0.1 });
-    observer.observe(contactSection);
-}
-
-
 const form = document.querySelector("form");
 
 if(form) {
@@ -171,7 +142,6 @@ const resultContainer = document.getElementById('result');
     e.preventDefault();
 
        if (inputsValidity.name && inputsValidity.email && inputsValidity.message) {
-        if (window.grecaptcha) {
             grecaptcha.ready(function () {
                 grecaptcha.execute('6LdDuDkrAAAAAE-Kd567wFLfK0kaTVSx21hlSQt4', { action: 'submit' }).then(function (token) {
                     const formData = {
@@ -228,7 +198,6 @@ const resultContainer = document.getElementById('result');
             });
         });
     });
-}
 }
 });  
 }
