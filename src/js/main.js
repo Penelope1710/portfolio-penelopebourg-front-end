@@ -163,41 +163,41 @@ const resultContainer = document.getElementById('result');
                 submitButton.classList.remove("disabled");
             }
 
-        fetch(`${apiUrl}/contact`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
+            fetch(`${apiUrl}/contact`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
 
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Erreur réseau");
-                }
-                return response.json();
             })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Erreur réseau");
+                    }
+                    return response.json();
+                })
         
-            .then(data => {
-                resultContainer.textContent = 'Message envoyé avec succès !';
-                resultContainer.className = 'success';
-                console.log("réponse du serveur:", data)
-                form.reset();
-                inputsValidity.name = false;
-                inputsValidity.email = false;
-                inputsValidity.message = false;
-                
-            })
-            .catch(error => {
-                console.error('Erreur au moment de l\'envoi :', error);
-                resultContainer.textContent = 'Erreur lors de l\'envoie du message. Merci de bien vouloir réessayer.';
-                resultContainer.className = 'error';
-            })
-            .finally(() => {
-                resetSubmitButton();
+                .then(data => {
+                    resultContainer.textContent = 'Message envoyé avec succès !';
+                    resultContainer.className = 'success';
+                    console.log("réponse du serveur:", data)
+                    form.reset();
+                    inputsValidity.name = false;
+                    inputsValidity.email = false;
+                    inputsValidity.message = false;
+                    
+                })
+                .catch(error => {
+                    console.error('Erreur au moment de l\'envoi :', error);
+                    resultContainer.textContent = 'Erreur lors de l\'envoie du message. Merci de bien vouloir réessayer.';
+                    resultContainer.className = 'error';
+                })
+                .finally(() => {
+                    resetSubmitButton();
+                });
             });
         });
-    });
-}
+    }
 });  
 }
